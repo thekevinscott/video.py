@@ -25,12 +25,12 @@ def separateFrames(source, target, start, end):
     cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     success,image = cap.read()
     count = 0
-    while success and (end is None or (end - start ) > count):
+    while success and (end is None or (end - start) > count):
         fileTarget = "%s/%d.jpg" % (target, count)
         cv2.imwrite(fileTarget, image)
         success,image = cap.read()
         count += 1
-        print('.')
+        print('.', end='')
 
 source = args.source.split(',')
 target = args.target.split(',')
