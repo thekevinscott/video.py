@@ -1,0 +1,15 @@
+{
+  "pipeline": {
+    "name": "video"
+  },
+  "transform": {
+    "cmd": [ "python3", "/video.py" ],
+    "image": "pachyderm/opencv"
+  },
+  "input": {
+    "atom": {
+      "repo": "videos3",
+      "glob": "/*"
+    }
+  }
+}
