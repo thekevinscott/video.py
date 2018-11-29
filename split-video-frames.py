@@ -1,8 +1,5 @@
-# video.py
-# import os
 import cv2
 import os
-# import pathlib
 import argparse
 
 parser=argparse.ArgumentParser()
@@ -21,7 +18,6 @@ if not args.target:
 
 def separateFrames(source, target, start, end):
     os.mkdir(target)
-    # pathlib.Path(target).mkdir(parents=True, exist_ok=True)
     cap = cv2.VideoCapture(source)
     cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     success,image = cap.read()
