@@ -1,7 +1,6 @@
 # video.py
 # import os
 import cv2
-import sys
 import pathlib
 import argparse
 

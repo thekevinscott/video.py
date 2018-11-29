@@ -1,9 +1,9 @@
 {
   "pipeline": {
-    "name": "videos"
+    "name": "split-video"
   },
   "transform": {
-    "cmd": [ "python3", "/videos.py" ],
+    "cmd": [ "python3", "/split-video-frames.py" ],
     "image": "pachyderm/opencv"
   },
   "input": {
