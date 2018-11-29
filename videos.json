@@ -1,9 +1,9 @@
 {
   "pipeline": {
-    "name": "video"
+    "name": "videos"
   },
   "transform": {
-    "cmd": [ "python3", "/video.py" ],
+    "cmd": [ "python3", "/videos.py" ],
     "image": "pachyderm/opencv"
   },
   "input": {
