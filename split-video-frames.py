@@ -33,8 +33,8 @@ def separateFrames(source, target, start, end):
 
 source = args.source.split(',')
 target = args.target.split(',')
-start = 0 if args.start == '' else int(args.start)
-end = None if args.end == '' else int(args.end)
+start = 0 if not args.start else int(args.start)
+end = None if not args.end else int(args.end)
 
 if len(target) is not len(source):
     raise Exception('Mismatch between source and target args')

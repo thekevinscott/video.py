@@ -3,7 +3,14 @@
     "name": "split-video"
   },
   "transform": {
-    "cmd": [ "python3", "/split-video-frames.py" ],
+    "cmd": [
+        "python3",
+        "/split-video-frames.py",
+        "--source",
+        "assets/SampleVideo_1280x720_1mb.mp4",
+        "--target",
+        "out"
+    ],
     "image": "pachyderm/opencv"
   },
   "input": {
