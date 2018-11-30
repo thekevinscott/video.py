@@ -17,7 +17,7 @@ if not args.target:
     raise Exception('Please provide a target argument')
 
 def separateFrames(source, target, start, end):
-    # os.mkdir(target)
+    os.mkdir(target)
     cap = cv2.VideoCapture(source)
     cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     success,image = cap.read()
@@ -42,4 +42,5 @@ if (end is not None and end <= start):
     raise Exception('end argument must be greater than start argument')
 
 for i, s in enumerate(source):
+    print('source', source)
     separateFrames(s, target[i], start, end)
