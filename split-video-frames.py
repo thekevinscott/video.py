@@ -21,12 +21,12 @@ def separateFrames(source, target, start, end):
     # os.mkdir(target)
     cap = cv2.VideoCapture(source)
     print('got cap')
-    cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
+    # cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     print('cap set')
     success,image = cap.read()
     print(success, image)
     if success is False:
-        raise Exception('Could not read image')
+        raise Exception('Could not read video file')
 
     count = 0
     while success and (end is None or (end - start) > count):
@@ -54,15 +54,6 @@ if len(target) is not len(source):
 if (end is not None and end <= start):
     raise Exception('end argument must be greater than start argument')
 
-print('prepare to walk pfs ')
-
-for dirpath, dirs, files in os.walk("/pfs"):
-    print('videos', dirpath, dirs, files)
-    for file in files:
-        print('file', file)
-
 for i, s in enumerate(source):
     file = os.path.join('/pfs/videos', source[i])
-    print('source', source, i)
-    print('s', file)
     separateFrames(file, target[i], start, end)
