@@ -32,7 +32,8 @@ def separateFrames(source, target, start, end):
     while success and (end is None or (end - start) > count):
         print('while still true', count)
         # fileTarget = "%s/%d.jpg" % (target, count)
-        fileTarget = "%d.jpg" % (count)
+        # fileTarget = "%d.jpg" % (count)
+        fileTarget = os.path.join('/pfs/out', os.path("%d.jpg" % (count)))
         print('file target', fileTarget)
         cv2.imwrite(fileTarget, image)
         print('written')
@@ -53,6 +54,16 @@ if len(target) is not len(source):
 if (end is not None and end <= start):
     raise Exception('end argument must be greater than start argument')
 
-for i, s in enumerate(source):
-    print('source', source, i, s)
+for dirpath, dirs, files in os.walk("/pfs/images"):
+    for file in files:
+        print('file', file)
+
+for dirpath, dirs, files in os.walk("/pfs/videos"):
+    for file in files:
+        print('file', file)
+
+for i in enumerate(source):
+    s = os.path.join('/pfs/videos', source[i])
+    print('source', source, i)
+    print('s', s)
     separateFrames(source[i], target[i], start, end)
