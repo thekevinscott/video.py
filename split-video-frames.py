@@ -62,8 +62,8 @@ for dirpath, dirs, files in os.walk("/pfs/videos"):
     for file in files:
         print('file', file)
 
-for i in enumerate(source):
-    s = os.path.join('/pfs/videos', source[i])
+for i, s in enumerate(source):
+    file = os.path.join('/pfs/videos', source[i])
     print('source', source, i)
-    print('s', s)
-    separateFrames(source[i], target[i], start, end)
+    print('s', file)
+    separateFrames(file, target[i], start, end)
