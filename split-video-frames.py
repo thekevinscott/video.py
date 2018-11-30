@@ -17,7 +17,7 @@ if not args.target:
     raise Exception('Please provide a target argument')
 
 def separateFrames(source, target, start, end):
-    print('separate frames')
+    print('separate frames', source, target, start, end)
     # os.mkdir(target)
     cap = cv2.VideoCapture(source)
     print('got cap')
@@ -25,6 +25,9 @@ def separateFrames(source, target, start, end):
     print('cap set')
     success,image = cap.read()
     print(success, image)
+    if success is False:
+        raise Exception('Could not read image')
+
     count = 0
     while success and (end is None or (end - start) > count):
         print('while still true', count)
