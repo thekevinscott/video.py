@@ -54,5 +54,5 @@ if (end is not None and end <= start):
     raise Exception('end argument must be greater than start argument')
 
 for i, s in enumerate(source):
-    print('source', source)
-    separateFrames(s, target[i], start, end)
+    print('source', source, i, s)
+    separateFrames(source[i], target[i], start, end)
