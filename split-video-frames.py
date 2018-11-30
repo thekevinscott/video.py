@@ -54,11 +54,9 @@ if len(target) is not len(source):
 if (end is not None and end <= start):
     raise Exception('end argument must be greater than start argument')
 
-for dirpath, dirs, files in os.walk("/pfs/images"):
-    for file in files:
-        print('file', file)
-
-for dirpath, dirs, files in os.walk("/pfs/videos"):
+print('prepare to walk pfs ')
+for dirpath, dirs, files in os.walk("/pfs"):
+    print('videos', dirpath, dirs, files)
     for file in files:
         print('file', file)
 
