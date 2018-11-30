@@ -17,13 +17,14 @@ if not args.target:
     raise Exception('Please provide a target argument')
 
 def separateFrames(source, target, start, end):
-    os.mkdir(target)
+    # os.mkdir(target)
     cap = cv2.VideoCapture(source)
     cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     success,image = cap.read()
     count = 0
     while success and (end is None or (end - start) > count):
-        fileTarget = "%s/%d.jpg" % (target, count)
+        # fileTarget = "%s/%d.jpg" % (target, count)
+        fileTarget = "%d.jpg" % (count)
         cv2.imwrite(fileTarget, image)
         success,image = cap.read()
         count += 1
