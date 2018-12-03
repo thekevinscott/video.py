@@ -7,11 +7,11 @@
         "python3",
         "/split-video-frames.py",
         "--source",
-        "sample.mp4",
+        "/pfs/videos/sample.mp4",
         "--target",
-        "out"
+        "/pfs/out/written-images"
     ],
-    "image": "thekevinscott/videos.py:try2"
+    "image": "thekevinscott/videos.py:latest-10"
   },
   "input": {
     "atom": {
