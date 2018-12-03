@@ -14,5 +14,6 @@ RUN apt-get update \
 
 RUN pip3 install --upgrade pip
 RUN pip3 install opencv-python
+RUN apt update && apt install -y libsm6 libxext6
 
 ADD split-video-frames.py /split-video-frames.py
