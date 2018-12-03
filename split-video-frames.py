@@ -18,6 +18,12 @@ if not args.target:
 
 def separateFrames(source, target, start, end):
     print('separate frames', source, target, start, end)
+
+    if source.exists():
+        print('file exists', source)
+    else:
+        print('file does not exist')
+
     # os.mkdir(target)
     cap = cv2.VideoCapture(source)
     print('got cap')
