@@ -31,7 +31,7 @@ def separateFrames(source, target, start, end):
     # cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     print('cap set')
     success,image = cap.read()
-    print(success)
+    print(success, image)
     if success is False:
         raise Exception('Could not read video file')
 
