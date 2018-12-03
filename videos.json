@@ -11,7 +11,7 @@
         "--target",
         "out"
     ],
-    "image": "thekevinscott/videos.py:latest-7"
+    "image": "thekevinscott/videos.py:latest-8"
   },
   "input": {
     "atom": {
