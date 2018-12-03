@@ -1,5 +1,6 @@
 import cv2
 import os
+import os.path
 import argparse
 
 parser=argparse.ArgumentParser()
@@ -19,7 +20,7 @@ if not args.target:
 def separateFrames(source, target, start, end):
     print('separate frames', source, target, start, end)
 
-    if source.exists():
+    if os.path.isfile(source):
         print('file exists', source)
     else:
         print('file does not exist')
@@ -37,9 +38,9 @@ def separateFrames(source, target, start, end):
     count = 0
     while success and (end is None or (end - start) > count):
         print('while still true', count)
-        # fileTarget = "%s/%d.jpg" % (target, count)
+        fileTarget = "%s/%d.jpg" % (target, count)
         # fileTarget = "%d.jpg" % (count)
-        fileTarget = os.path.join('/pfs/out', os.path("%d.jpg" % (count)))
+        # fileTarget = os.path.join('/pfs/out', os.path("%d.jpg" % (count)))
         print('file target', fileTarget)
         cv2.imwrite(fileTarget, image)
         print('written')
@@ -61,5 +62,6 @@ if (end is not None and end <= start):
     raise Exception('end argument must be greater than start argument')
 
 for i, s in enumerate(source):
-    file = os.path.join('/pfs/videos', source[i])
+    file = source[i]
+    # file = os.path.join('/pfs/videos', source[i])
     separateFrames(file, target[i], start, end)
