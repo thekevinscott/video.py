@@ -16,7 +16,9 @@ if not args.target:
     raise Exception('Please provide a target argument')
 
 def separateFrames(source, target):
-    os.mkdir(target)
+    print('sep 1')
+    os.makedirs(target, exist_ok=True)
+    print('sep 2')
     cap = cv2.VideoCapture(source)
     success,image = cap.read()
     print(success, image)
@@ -44,3 +46,5 @@ for i, s in enumerate(source):
     file = source[i]
     # file = os.path.join('/pfs/videos', source[i])
     separateFrames(file, target[i])
+
+
