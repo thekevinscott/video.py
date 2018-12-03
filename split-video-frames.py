@@ -18,14 +18,7 @@ if not args.target:
     raise Exception('Please provide a target argument')
 
 def separateFrames(source, target, start, end):
-    print('separate frames', source, target, start, end)
-
-    if os.path.isfile(source):
-        print('file exists', source)
-    else:
-        print('file does not exist')
-
-    # os.mkdir(target)
+    os.mkdir(target)
     cap = cv2.VideoCapture(source)
     print('got cap')
     # cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
