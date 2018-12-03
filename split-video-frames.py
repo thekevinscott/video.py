@@ -31,7 +31,7 @@ def separateFrames(source, target, start, end):
     # cap.set(cv2.CAP_PROP_POS_FRAMES, start-1)
     print('cap set')
     success,image = cap.read()
-    print(success, image)
+    print(success)
     if success is False:
         raise Exception('Could not read video file')
 
@@ -45,7 +45,7 @@ def separateFrames(source, target, start, end):
         cv2.imwrite(fileTarget, image)
         print('written')
         success,image = cap.read()
-        print(success, image)
+        print(success)
         count += 1
         print('.')
         print('.', end='')
