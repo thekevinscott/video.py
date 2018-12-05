@@ -15,7 +15,7 @@
   },
   "input": {
     "atom": {
-      "repo": "videos",
+      "repo": "thekevinscott/videos.py:latest-15",
       "glob": "/*"
     }
   }
