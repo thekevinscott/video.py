@@ -11,7 +11,7 @@
         "--target",
         "/pfs/out/written-images"
     ],
-    "image": "thekevinscott/videos.py:latest-14"
+    "image": "videos"
   },
   "input": {
     "atom": {
