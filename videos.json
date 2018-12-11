@@ -11,11 +11,11 @@
         "--target",
         "/pfs/out/written-images"
     ],
-    "image": "videos"
+    "image": "thekevinscott/videos.py:latest-16"
   },
   "input": {
     "atom": {
-      "repo": "thekevinscott/videos.py:latest-16",
+      "repo": "videos",
       "glob": "/*"
     }
   }
