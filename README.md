@@ -1,23 +1,25 @@
 # Blog Post
 
-Depending on who you ask, self-driving cars are either right around the corner or will never work.
+![](cover.jpg)
 
-> Chris Urmson claims, with his son's 16th birthday and driver's test fast approaching, that "My team are committed to making sure that doesn't happen." [TED](https://www.ted.com/talks/chris_urmson_how_a_driverless_car_sees_the_road
+The laundry list of tasks for self-driving cars is long. We expect them to monitor road conditions, keep an eye on optimal traffic flows, and make sure the car is climate controlled at all times.
+
+One of the most crucial tasks a self-driving car must tackle is pedestrian detection - recognizing people in live video, and taking evasive action if needed.
+
+> With his son's driver's test fast approaching, Chris Urmson claims that "My team are committed to making sure that doesn't happen." [TED](https://www.ted.com/talks/chris_urmson_how_a_driverless_car_sees_the_road
 ).
-
-Among all the other things a self-driving car must do, perhaps the most crucial is pedestrian recognition: recognizing people from video.
 
 At Pachyderm, we build tools that help data scientists create repeatable
 experiments. Part of how we do that is by breaking tasks into
 composable subtasks.
 
-In this set of posts, we'll build a pipeline capable of taking an ingesting a video stream and identifying people in the frames. This post will tackle the very first step: breaking an incoming video into frames for further analysis.
+In this set of posts, we'll build a pipeline capable of taking an ingesting a video stream and identifying people in the frames. This first post will tackle the first step: breaking an incoming video into frames for further analysis.
 
 ##Prerequisites
 
 This guide assumes that you already have Pachyderm running locally. [Check out our Local Installation](http://docs.pachyderm.io/en/latest/getting_started/local_installation.html) instructions if haven’t done that yet and then come back here to continue.
 
-##Getting running
+##Setting Up the Pipeline
 
 *You can view the full code at http://github.com/thekevinscott/videos.py*
 
@@ -97,9 +99,9 @@ Our pipeline hardcodes the input video - `sample.mp4` - along with the output fo
 * `/pfs/videos`, which matches your repo name, contains any files you've imported with `pachyderm put-file`.
 * `/pfs/out` contains all the output that your scripts write.
 
-## Seeing your frames
+## Seeing the output
 
-As soon as you created your pipeline, Pachyderm should start running. You can see progress with:
+As soon as you created your pipeline, Pachyderm should start running. You can see the progress with:
 
 ```
 pachctl list-pipeline
@@ -111,13 +113,18 @@ And you can see output from the script with:
 pachctl get-logs video
 ```
 
-Finally, once the script has completed, you can preview your frames with:
+Once the script has completed running, you can preview your frames with:
 
 ```
-pachctl get-file split-video master written-images/10.jpg | open -f -a /Applications/Preview.app
+pachctl get-file split-video master written-images/1.jpg | open -f -a /Applications/Preview.app
+pachctl get-file split-video master written-images/2.jpg | open -f -a /Applications/Preview.app
+pachctl get-file split-video master written-images/3.jpg | open -f -a /Applications/Preview.app
 ```
 
 ## Next
 
-Great! We now have a pipeline that takes our videos and splits them into
-frames. Next we can begin running person detection on them.
+Getting a pipeline set up in Pachyderm is super quick, and it's composable.
+
+Our next installment will take our split frames, and detect whether there are people in a given frame.
+
+Stay tuned!
