@@ -101,7 +101,7 @@ Our pipeline hardcodes the input video - `sample.mp4` - along with the output fo
 
 ## Seeing the output
 
-As soon as you created your pipeline, Pachyderm should start running. You can see the progress with:
+As soon as you created your pipeline, Pachyderm should start running. You can see the status of your pipeline with:
 
 ```
 pachctl list-pipeline
@@ -110,8 +110,10 @@ pachctl list-pipeline
 And you can see output from the script with:
 
 ```
-pachctl get-logs video
+pachctl get-logs --pipeline=split-video
 ```
+
+Note that we're using the pipeline name - defined in the JSON pipeline spec - instead of the repo name.
 
 Once the script has completed running, you can preview your frames with:
 
@@ -123,8 +125,8 @@ pachctl get-file split-video master written-images/3.jpg | open -f -a /Applicati
 
 ## Next
 
-Getting a pipeline set up in Pachyderm is super quick, and it's composable.
+Getting a pipeline set up in Pachyderm is quick and easy. Best of all, pipelines are composable.
 
-Our next installment will take our split frames, and detect whether there are people in a given frame.
+Our next installment will take our split frames pipeline, and add a second step to determine whether there are people in a given frame.
 
 Stay tuned!
