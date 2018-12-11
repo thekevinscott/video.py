@@ -15,11 +15,11 @@ composable subtasks.
 
 In this set of posts, we'll build a pipeline capable of taking an ingesting a video stream and identifying people in the frames. This first post will tackle the first step: breaking an incoming video into frames for further analysis.
 
-##Prerequisites
+## Prerequisites
 
 This guide assumes that you already have Pachyderm running locally. [Check out our Local Installation](http://docs.pachyderm.io/en/latest/getting_started/local_installation.html) instructions if haven’t done that yet and then come back here to continue.
 
-##Setting Up the Pipeline
+## Setting Up the Pipeline
 
 *You can view the full code at http://github.com/thekevinscott/videos.py*
 
